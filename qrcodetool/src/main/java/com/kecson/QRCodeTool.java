@@ -91,9 +91,15 @@ public class QRCodeTool {
 
 
         String text = "";
+
+
         String fileName = "";
         String dirPath = "";
+
         String logoPath = "";
+
+        String labelIconPath = "", label = "";
+
         if (args.length != 0) {
             String split[];
             for (int i = 0; i < args.length; i++) {
@@ -122,6 +128,18 @@ public class QRCodeTool {
                         System.err.println("must be like： -logo=C:/logo.jpg");
                     }
                     logoPath = split[1];
+                } else if (arg.startsWith("-labelIcon=")) {
+                    split = arg.trim().split("=");
+                    if (split.length != 2) {
+                        System.err.println("must be like： -labelIcon=C:/icon.jpg");
+                    }
+                    labelIconPath = split[1];
+                } else if (arg.startsWith("-label=")) {
+                    split = arg.trim().split("=");
+                    if (split.length != 2) {
+                        System.err.println("must be like： -label=1.0.0");
+                    }
+                    label = split[1];
                 }
             }
         } else {
@@ -143,12 +161,7 @@ public class QRCodeTool {
             dirPath = currentDir.getAbsolutePath();
         }
 
-        if (logoPath == null || logoPath.trim().isEmpty()) {
-            QRCodeUtil.encode(text, dirPath, fileName);
-        } else {
-
-            QRCodeUtil.encodeWithLogo(text, dirPath, fileName, logoPath);
-        }
+        QRCodeUtil.encodeWithLogo(text, dirPath, fileName, logoPath, labelIconPath, label);
     }
 }
 

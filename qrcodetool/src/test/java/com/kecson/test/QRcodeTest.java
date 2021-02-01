@@ -13,7 +13,15 @@ public class QRcodeTest {
 
     @Test
     public void createQRcodeWithLogo() throws Exception {
-        String[] args = new String[]{"-e", "-text=www.github.com/kecson/JavaProject", "-file=qr-logo.jpg", "-dir=.", "-logo=H:\\studioProject\\KotlinApp\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"};
+        String[] args = new String[]{
+                "-e",
+                "-text=www.github.com/kecson/JavaProject",
+                "-file=qr-logo.jpg",
+                "-dir=.",
+                "-logo=logo.png",
+                "-labelIcon=logo_apple.png",
+                "-label=1.0.0",
+        };
         QRCodeTool.main(args);
     }
 
