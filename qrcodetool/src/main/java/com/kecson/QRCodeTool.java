@@ -84,7 +84,7 @@ public class QRCodeTool {
 
     public static void decode(String filePath) throws Exception {
         String decode = QRCodeUtil.decode(filePath);
-        System.out.println("二维码内容为:\n" + decode);
+        System.out.println("" + decode);
     }
 
     private static void encode(String[] args) throws Exception {
